@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expense Tracker Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>💰 Expense Tracker</h1>
+
+    <div class="input-box">
+
+        <input type="text" id="expenseName" placeholder="Expense Name">
+
+        <input type="number" id="expenseAmount" placeholder="Amount">
+
+        <input type="date" id="expenseDate">
+
+        <button onclick="addExpense()">Add Expense</button>
+
+    </div>
+
+    <div class="summary">
+
+        <div class="card">
+            <h3>Daily</h3>
+            <p id="dailyTotal">₹0</p>
+        </div>
+
+        <div class="card">
+            <h3>Weekly</h3>
+            <p id="weeklyTotal">₹0</p>
+        </div>
+
+        <div class="card">
+            <h3>Monthly</h3>
+            <p id="monthlyTotal">₹0</p>
+        </div>
+
+    </div>
+
+    <h2>Expense History</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="expenseList">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
