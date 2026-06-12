@@ -48,16 +48,18 @@ FinTrack Pro is a modern and interactive Expense Tracking Dashboard built using 
 
 ## 📁 Project Structure
 
+```text
 FinTrack-Pro/
 │
 ├── index.html
 ├── style.css
 ├── script.js
 ├── README.md
+```
 
 ## 🎯 How to Run
 
-1. Download or clone the repository.
+1. Download the repository.
 2. Open the project folder.
 3. Run `index.html` in any modern browser.
 4. Start adding expenses and tracking your spending.
