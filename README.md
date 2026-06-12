@@ -48,15 +48,12 @@ FinTrack Pro is a modern and interactive Expense Tracking Dashboard built using 
 
 ## 📁 Project Structure
 
-```text
 FinTrack-Pro/
 │
 ├── index.html
 ├── style.css
 ├── script.js
 ├── README.md
-└── assets/
-```
 
 ## 🎯 How to Run
 
