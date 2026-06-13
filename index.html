@@ -1,68 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Expense Tracker Pro</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack Pro - Expense Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
 <div class="container">
+    <header>
+        <h1><i class="fa-solid fa-wallet animated-wallet"></i> FinTrack <span class="gradient-text">Pro</span></h1>
+        <p class="subtitle">Smart Expense Analytics & Tracking Dashboard</p>
+    </header>
 
-    <h1>💰 Expense Tracker</h1>
+    <div class="dashboard-grid">
+        
+        <div class="left-panel">
+            <form id="expenseForm" onsubmit="event.preventDefault();" autocomplete="off">
+                <div class="glass-card input-box">
+                    <h3><i class="fa-solid fa-plus-circle"></i> Log New Expense</h3>
+                    <div class="form-group">
+                        <input type="text" id="expenseName" placeholder="Expense Name (e.g., Grocery)">
+                    </div>
+                    <div class="form-row">
+                        <input type="number" id="expenseAmount" placeholder="Amount (₹)" min="1" step="any">
+                        <input type="date" id="expenseDate" onclick="this.showPicker()">
+                    </div>
+                    <div class="form-group">
+                        <select id="expenseCategory">
+                            <option value="" disabled selected hidden>Select Category</option>
+                            <option value="Food">🍔 Food & Dining</option>
+                            <option value="Bills">🧾 Bills & Utilities</option>
+                            <option value="Shopping">🛍️ Shopping</option>
+                            <option value="Entertainment">🎬 Entertainment</option>
+                            <option value="Travel">🚗 Travel & Transport</option>
+                            <option value="Other">✨ Others</option>
+                        </select>
+                    </div>
+                    <button type="button" onclick="addExpense()" id="addBtn"><i class="fa-solid fa-bolt"></i> Add Expense</button>
+                </div>
+            </form>
 
-    <div class="input-box">
+            <div class="glass-card chart-box">
+                <h3><i class="fa-solid fa-chart-pie"></i> Spending Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+        </div>
 
-        <input type="text" id="expenseName" placeholder="Expense Name">
+        <div class="right-panel">
+            <div class="summary">
+                <div class="card daily-card">
+                    <div class="card-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                    <div>
+                        <h3>Daily Total</h3>
+                        <p id="dailyTotal">₹0</p>
+                    </div>
+                </div>
 
-        <input type="number" id="expenseAmount" placeholder="Amount">
+                <div class="card weekly-card">
+                    <div class="card-icon"><i class="fa-solid fa-calendar-week"></i></div>
+                    <div>
+                        <h3>Weekly Total</h3>
+                        <p id="weeklyTotal">₹0</p>
+                    </div>
+                </div>
 
-        <input type="date" id="expenseDate">
+                <div class="card monthly-card">
+                    <div class="card-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                    <div>
+                        <h3>Monthly Total</h3>
+                        <p id="monthlyTotal">₹0</p>
+                    </div>
+                </div>
+            </div>
 
-        <button onclick="addExpense()">Add Expense</button>
+            <div class="glass-card history-box">
+                <div class="history-header">
+                    <h2><i class="fa-solid fa-history"></i> Transaction History</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseList"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
     </div>
-
-    <div class="summary">
-
-        <div class="card">
-            <h3>Daily</h3>
-            <p id="dailyTotal">₹0</p>
-        </div>
-
-        <div class="card">
-            <h3>Weekly</h3>
-            <p id="weeklyTotal">₹0</p>
-        </div>
-
-        <div class="card">
-            <h3>Monthly</h3>
-            <p id="monthlyTotal">₹0</p>
-        </div>
-
-    </div>
-
-    <h2>Expense History</h2>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-
-        <tbody id="expenseList">
-
-        </tbody>
-
-    </table>
-
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
